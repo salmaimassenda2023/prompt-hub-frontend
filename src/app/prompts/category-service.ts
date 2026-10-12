@@ -9,6 +9,7 @@ import { MessageModule } from 'primeng/message';
 import { ToastModule } from 'primeng/toast';
 import { ButtonModule } from 'primeng/button';
 import { MessageService } from 'primeng/api';
+import { Prompt } from './prompt.model';
 
 @Injectable({
   providedIn: 'root',
@@ -21,5 +22,7 @@ export class CategoryService {
   getCategories(){
     return this.httpClient.get<Category[]>(this.baseUrl);
   }
+
+  
 
 }
