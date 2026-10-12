@@ -1,6 +1,7 @@
 import { inject, Injectable } from '@angular/core'
 import { Prompt } from './prompt.model'
 import { HttpClient } from '@angular/common/http'
+import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
@@ -9,9 +10,11 @@ export class PromptService {
 
   httpClient = inject(HttpClient);
 
+  baseUrl = environment.apiUrl + 'prompts';
+
   getPrompts(){
    
-    return this.httpClient.get<Prompt[]>('http://localhost:3000/prompts')
+    return this.httpClient.get<Prompt[]>(this.baseUrl);
     
   }
 }
